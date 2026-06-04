@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gladden Global Network | Veteran Owned Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #030712;
+    --steel: #1C3F5E;
+    --gold: #C9A84C;
+    --gold-light: #e0c57a;
+    --white: #ffffff;
+    --off-white: #f5f3ef;
+    --gray: #8a8a8a;
+    --light-gray: #e8e6e1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+
+  nav.scrolled {
+    background: rgba(3, 7, 18, 0.97);
+    padding: 16px 60px;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .nav-logo .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+
+  .nav-logo .sub {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 10px 24px;
+    transition: all 0.3s;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #030712 0%, #0a1628 40%, #1C3F5E 100%);
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px;
+    max-width: 800px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+    color: var(--white);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin-bottom: 52px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .btn-ghost:hover { color: var(--gold); }
+
+  .btn-ghost::after {
+    content: '→';
+    transition: transform 0.3s;
+  }
+
+  .btn-ghost:hover::after { transform: translateX(6px); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .hero-scroll::before {
+    content: '';
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.6));
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    display: flex;
+    gap: 48px;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .section-body {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    letter-spacing: 0.02em;
+  }
+
+  /* MISSION SECTION */
+  .mission {
+    background: var(--off-white);
+    color: var(--navy);
+  }
+
+  .mission .section-title { color: var(--navy); }
+  .mission .section-body { color: rgba(3,7,18,0.65); }
+  .mission .section-eyebrow { color: var(--steel); }
+  .mission .section-eyebrow::before { background: var(--steel); }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 80px;
+    align-items: center;
+  }
+
+  .mission-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .pillar {
+    background: var(--navy);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .pillar:hover { transform: translateY(-4px); }
+
+  .pillar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .pillar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .pillar-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .pillar-desc {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* PILLARS SECTION */
+  .pillars-section {
+    background: var(--navy);
+  }
+
+  .pillars-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.1);
+  }
+
+  .service-card {
+    background: var(--navy);
+    padding: 48px 36px;
+    border-top: 1px solid rgba(201,168,76,0.12);
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card:hover {
+    background: rgba(28,63,94,0.5);
+  }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .service-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* DIFFERENTIATORS */
+  .diff-section {
+    background: var(--steel);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diff-section::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.05);
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .diff-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .diff-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .diff-item:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+
+  .diff-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .diff-icon svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .diff-item-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .diff-item-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* QUOTE BLOCK */
+  .quote-block {
+    background: rgba(3,7,18,0.6);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 52px 48px;
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.15);
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 32px;
+  }
+
+  .quote-author {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* MEMBERSHIP */
+  .membership {
+    background: var(--off-white);
+    color: var(--navy);
+  }
+
+  .membership .section-title { color: var(--navy); }
+  .membership .section-eyebrow { color: var(--steel); }
+  .membership .section-eyebrow::before { background: var(--steel); }
+
+  .membership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+  }
+
+  .membership-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .membership-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(3,7,18,0.7);
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(3,7,18,0.08);
+  }
+
+  .membership-list li::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--steel);
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 3px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4 10l4 4 8-8' stroke='%231C3F5E' stroke-width='1.5'/%3E%3C/svg%3E") center/14px no-repeat;
+  }
+
+  .membership-benefits {
+    background: var(--navy);
+    padding: 48px 44px;
+    color: var(--white);
+  }
+
+  .membership-benefits h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+  }
+
+  .benefit-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--navy);
+    position: relative;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    padding: 14px 18px;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: none;
+  }
+
+  .form-group select option { background: var(--navy); }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .contact-info {
+    padding-top: 20px;
+  }
+
+  .contact-info-item {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .contact-info-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .contact-info-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--white);
+  }
+
+  .contact-info-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-info-value a:hover { color: var(--gold); }
+
+  /* ABOUT PAGE */
+  .about-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 160px 60px 80px;
+    background: linear-gradient(135deg, #030712 0%, #0a1628 60%, #1C3F5E 100%);
+    position: relative;
+  }
+
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .about-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .founder-section {
+    background: var(--off-white);
+    padding: 100px 60px;
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  .founder-card {
+    background: var(--navy);
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .founder-card::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 1px solid var(--gold);
+    z-index: -1;
+  }
+
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .founder-title {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .founder-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 6px 14px;
+    margin: 4px 4px 4px 0;
+  }
+
+  .founder-contact {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .founder-contact a {
+    display: block;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+
+  .founder-contact a:hover { color: var(--gold); }
+
+  .founder-bio {
+    color: rgba(3,7,18,0.7);
+  }
+
+  .founder-bio p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    margin-bottom: 20px;
+    letter-spacing: 0.01em;
+  }
+
+  /* BUYERS / SELLERS PAGE */
+  .inner-hero {
+    min-height: 55vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 160px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .inner-hero.buyers-bg {
+    background: linear-gradient(135deg, #030712 0%, #0d1f35 50%, #1C3F5E 100%);
+  }
+
+  .inner-hero.sellers-bg {
+    background: linear-gradient(135deg, #030712 0%, #1a1208 50%, #2d1f06 100%);
+  }
+
+  .inner-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .inner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .process-section {
+    background: var(--navy);
+    padding: 100px 60px;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,168,76,0.08);
+    margin-top: 60px;
+  }
+
+  .step {
+    background: var(--navy);
+    padding: 40px 28px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(201,168,76,0.1);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .info-section {
+    background: var(--off-white);
+    padding: 100px 60px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    margin-top: 60px;
+    align-items: start;
+  }
+
+  .info-text {
+    color: var(--navy);
+  }
+
+  .info-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  .info-text p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(3,7,18,0.65);
+    margin-bottom: 20px;
+  }
+
+  .highlight-box {
+    background: var(--navy);
+    padding: 40px 36px;
+    color: var(--white);
+  }
+
+  .highlight-box h4 {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .highlight-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .highlight-list li {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .highlight-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #010509;
+    padding: 80px 60px 40px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+  }
+
+  .footer-brand .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .footer-brand .sub {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.4);
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col ul li a {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .veteran-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .veteran-badge::before {
+    content: '★';
+    font-size: 14px;
+  }
+
+  /* SUCCESS MESSAGE */
+  .success-msg {
+    display: none;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--gold);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  /* MOBILE NAV */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-content { padding: 0 24px; }
+    .hero-stats { display: none; }
+    section { padding: 80px 24px; }
+    .mission-grid, .diff-grid, .contact-grid, .membership-grid,
+    .founder-grid, .info-grid, .pillars-header { grid-template-columns: 1fr; gap: 40px; }
+    .pillars-grid, .process-steps { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .about-hero, .inner-hero { padding: 140px 24px 60px; }
+    .founder-section { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <span class="name">GLADDEN GLOBAL</span>
+    <span class="sub">Network</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('buyers')">Buyers</a></li>
+    <li><a href="#" onclick="showPage('sellers')">Sellers</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+    <li><a href="#" onclick="showPage('realty')" style="color:var(--gold)">Join Our Realty Team</a></li>
+  </ul>
+  <a class="nav-cta" href="#" onclick="showPage('contact')">Connect With Us</a>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Veteran Owned &nbsp;|&nbsp; Maryland Based &nbsp;|&nbsp; Globally Operated</div>
+      <h1>We Are Not a<br>Traditional Real<br><em>Estate Company</em></h1>
+      <p class="hero-desc">We are a connection platform built to bring every participant in the real estate ecosystem together under one roof. Buyers, sellers, investors, lenders, veterans, and first generation wealth builders.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#" onclick="showPage('contact')">Start the Conversation</a>
+        <button class="btn-ghost" onclick="showPage('about')">Our Mission</button>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">DMV</div>
+        <div class="stat-label">Primary Market</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">Service Pillars</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">VA</div>
+        <div class="stat-label">Loan Specialists</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="section-eyebrow">Who We Are</div>
+    <div class="mission-grid">
+      <div>
+        <h2 class="section-title">Built to Fill<br>a <em>Critical Gap</em></h2>
+        <p class="section-body">Gladden Global Network was created to fill a gap that affects millions — the lack of access to real estate knowledge, opportunity, and the right connections at the right time. When people have the right education, the right network, and the right team behind them, they make better financial decisions and build lasting wealth.</p>
+        <br><br>
+        <a class="btn-primary" href="#" onclick="showPage('about')" style="display:inline-block; text-decoration:none;">Meet the Founder</a>
+      </div>
+      <div class="mission-pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-title">Connect</div>
+          <div class="pillar-desc">The right people at the right time, every time.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-title">Educate</div>
+          <div class="pillar-desc">Knowledge before every transaction.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-title">Elevate</div>
+          <div class="pillar-desc">Every participant moves forward together.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">04</div>
+          <div class="pillar-title">Access</div>
+          <div class="pillar-desc">Open doors that were never shown before.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIX PILLARS -->
+  <section class="pillars-section">
+    <div class="pillars-header">
+      <div>
+        <div class="section-eyebrow">What We Do</div>
+        <h2 class="section-title">Six Pillars of<br><em>Service</em></h2>
+      </div>
+      <p class="section-body">Everything GGN does falls under six core service pillars. Each one is a direct pathway to education, connection, and real estate transactions built on a foundation of trust.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Buyers</div>
+        <div class="service-desc">We guide first-time and experienced buyers through the entire purchase process. From financial preparation and pre-approval to closing, with the right lenders and resources every step of the way.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Sellers</div>
+        <div class="service-desc">We help homeowners maximize the value of their property and navigate the selling process with clarity. From pricing strategy to marketing and negotiation, positioned to deliver results.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-title">Military</div>
+        <div class="service-desc">As a veteran-owned company, serving military families is in our DNA. VA loans, PCS relocations, assumable loan opportunities, and real estate solutions for service members and veterans.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-title">Education</div>
+        <div class="service-desc">We host real estate classes and workshops as they happen. Market updates, first-time buyer seminars, VA loan education, and wealth building basics delivered when it matters most.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-title">Network</div>
+        <div class="service-desc">Free membership with a referral agreement. GGN connects contractors, wholesalers, lenders, credit repairers, investors, and agents — everyone in real estate, one introduction away.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-title">New Construction</div>
+        <div class="service-desc">We guide buyers and investors through the new construction process. From selecting builders and negotiating upgrades to understanding contracts and timelines with the right advocate.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section class="diff-section">
+    <div class="diff-grid">
+      <div>
+        <div class="section-eyebrow">The Difference</div>
+        <h2 class="section-title">What Sets<br><em>GGN Apart</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.65); margin-top:20px;">Most real estate companies focus on the transaction. GGN focuses on the entire journey — before, during, and after.</p>
+      </div>
+      <ul class="diff-list">
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div>
+            <div class="diff-item-title">Full Ecosystem</div>
+            <div class="diff-item-desc">Every participant in the real estate chain has a home in GGN — not just agents and buyers.</div>
+          </div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div>
+            <div class="diff-item-title">Education First</div>
+            <div class="diff-item-desc">Financial literacy before every transaction. Knowledge builds loyalty that transactions cannot.</div>
+          </div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div>
+            <div class="diff-item-title">Veteran Owned and Mission Driven</div>
+            <div class="diff-item-desc">Built by a veteran who experienced the gap firsthand. The mission is authentic and it shows.</div>
+          </div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div>
+            <div class="diff-item-title">Global Reach</div>
+            <div class="diff-item-desc">Maryland-based but globally connected. Relocation clients, international buyers, military families across markets others never reach.</div>
+          </div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div>
+            <div class="diff-item-title">The Gladden Global Magazine</div>
+            <div class="diff-item-desc">Our upcoming publication spotlights partner stories, market insights, and community wins. No one else in our space has a media arm like this.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section class="membership">
+    <div class="section-eyebrow" style="color:var(--steel)">Network Membership</div>
+    <h2 class="section-title" style="color:var(--navy)">Free to Join.<br><em style="color:var(--steel)">Built to Grow Together.</em></h2>
+    <div class="membership-grid">
+      <div>
+        <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(3,7,18,0.65);margin-bottom:32px;">Every member signs a referral agreement — so when connections turn into transactions, everyone wins. Low barrier to entry, high ceiling for growth.</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--navy);margin-bottom:24px;">Who Should Join</h3>
+        <ul class="membership-list">
+          <li>Real estate agents looking for referral opportunities</li>
+          <li>Contractors, lenders, and credit repairers seeking qualified clients</li>
+          <li>Investors looking for deals, partners, and vetted resources</li>
+          <li>Wholesalers with inventory seeking connected buyers</li>
+          <li>First-generation wealth builders ready to learn and take action</li>
+          <li>Military families and veterans navigating real estate decisions</li>
+        </ul>
+        <br>
+        <a class="btn-primary" href="#" onclick="showPage('contact')" style="display:inline-block;text-decoration:none;margin-top:8px;">Join the Network</a>
+      </div>
+      <div class="membership-benefits">
+        <h3>Member Benefits</h3>
+        <div class="benefit-item"><div class="benefit-dot"></div>Access to the GGN referral and connection network</div>
+        <div class="benefit-item"><div class="benefit-dot"></div>Invitations to real estate education classes and workshops</div>
+        <div class="benefit-item"><div class="benefit-dot"></div>Partner spotlights and features in The Gladden Global Magazine</div>
+        <div class="benefit-item"><div class="benefit-dot"></div>Direct access to the eXp Realty team</div>
+        <div class="benefit-item"><div class="benefit-dot"></div>A community built on education, connection, and shared growth</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- BUYERS PAGE -->
+<div id="page-buyers" class="page">
+  <div class="inner-hero buyers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">For Buyers</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Find Your Home<br>With <em style="color:var(--gold);font-style:italic;">Confidence</em></h1>
+      <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.6);max-width:500px;">From financial preparation and pre-approval to closing day, we guide first-time and experienced buyers through every step of the process.</p>
+    </div>
+  </div>
+
+  <section class="process-section">
+    <div class="section-eyebrow">The Process</div>
+    <h2 class="section-title">How We Guide<br><em>Your Purchase</em></h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Financial Preparation</div>
+        <div class="step-desc">We connect you to the right lenders and credit resources to get you prepared and pre-approved before you start searching.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Property Search</div>
+        <div class="step-desc">With access to MLS, new construction, and off-market opportunities, we find properties that match your goals and budget.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Offer and Negotiation</div>
+        <div class="step-desc">We craft competitive offers and negotiate on your behalf to protect your interests and maximize your investment.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Close and Beyond</div>
+        <div class="step-desc">We guide you through inspections, appraisals, and closing — and stay connected long after the keys are in your hand.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-text">
+        <div class="section-eyebrow" style="color:var(--steel)">VA and Military Buyers</div>
+        <h3>Specialized Support for<br>Those Who Served</h3>
+        <p>As a veteran-owned company, serving military families is in our DNA. We specialize in VA loans, PCS relocations, assumable loan opportunities, and real estate solutions tailored to the unique needs of active duty service members, veterans, and military spouses.</p>
+        <p>Our deep understanding of VA loan programs, entitlement restoration, and military relocation timelines means you work with someone who gets it — not just someone who handles it.</p>
+        <a class="btn-primary" href="#" onclick="showPage('contact')" style="display:inline-block;text-decoration:none;margin-top:12px;">Talk to a VA Specialist</a>
+      </div>
+      <div class="highlight-box">
+        <h4>What Buyers Receive</h4>
+        <ul class="highlight-list">
+          <li>Pre-approval coordination with vetted lenders</li>
+          <li>Access to MLS, new construction, and off-market inventory</li>
+          <li>Full-service buyer representation and negotiation</li>
+          <li>VA loan guidance and military relocation support</li>
+          <li>Connection to inspectors, attorneys, and settlement services</li>
+          <li>Post-closing support and network access</li>
+          <li>First-time buyer education and workshops</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SELLERS PAGE -->
+<div id="page-sellers" class="page">
+  <div class="inner-hero sellers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">For Sellers</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Maximize Your<br><em style="color:var(--gold);font-style:italic;">Property's Value</em></h1>
+      <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.6);max-width:500px;">From pricing strategy to marketing and negotiation, our team and network are positioned to help you sell with clarity, confidence, and results.</p>
+    </div>
+  </div>
+
+  <section class="process-section">
+    <div class="section-eyebrow">The Process</div>
+    <h2 class="section-title">How We Sell<br><em>Your Property</em></h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Pricing Strategy</div>
+        <div class="step-desc">We analyze comparable sales, market trends, and your property's unique features to price it for maximum value and minimum time on market.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Preparation and Marketing</div>
+        <div class="step-desc">Professional photography, targeted digital marketing, MLS exposure, and network outreach to reach qualified buyers where they are.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Offers and Negotiation</div>
+        <div class="step-desc">We review every offer with you, negotiate terms in your favor, and guide you through the decision with full transparency.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Contract to Close</div>
+        <div class="step-desc">We manage the timeline, coordinate with all parties, and keep your transaction on track from accepted offer to settlement table.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-grid">
+      <div class="info-text">
+        <div class="section-eyebrow" style="color:var(--steel)">The Relist Roadmap</div>
+        <h3>Expired Listings Deserve<br>a Better Strategy</h3>
+        <p>If your home sat on the market without selling, the problem was rarely the property — it was the approach. The Relist Roadmap is our proprietary process for relaunching expired and overlooked listings with a fresh strategy, stronger positioning, and a network-backed marketing push.</p>
+        <p>We identify what went wrong, fix it, and go back to market with the tools and connections that produce results.</p>
+        <a class="btn-primary" href="#" onclick="showPage('contact')" style="display:inline-block;text-decoration:none;margin-top:12px;">Discuss Your Property</a>
+      </div>
+      <div class="highlight-box">
+        <h4>What Sellers Receive</h4>
+        <ul class="highlight-list">
+          <li>Comparative market analysis and pricing consultation</li>
+          <li>Professional photography and property preparation guidance</li>
+          <li>MLS listing and digital marketing across platforms</li>
+          <li>GGN network exposure to investors and active buyers</li>
+          <li>Full-service negotiation and contract management</li>
+          <li>Relist Roadmap for expired and challenging properties</li>
+          <li>Relocation coordination for outbound moves</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">About GGN</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Built With<br>Discipline and<br><em style="color:var(--gold);font-style:italic;">Purpose</em></h1>
+      <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.6);max-width:560px;">Gladden Global Network is a veteran-owned global concierge real estate company headquartered in Maryland. Built to be the platform that connects the dots, educates every participant, and creates opportunities for communities, youth, and first-generation wealth builders.</p>
+    </div>
+  </div>
+
+  <section class="founder-section">
+    <div class="section-eyebrow" style="color:var(--steel)">The Founder</div>
+    <div class="founder-grid">
+      <div class="founder-card">
+        <div class="founder-name">Jon Gladden</div>
+        <div class="founder-title">Founder and CEO, Gladden Global Network</div>
+        <div>
+          <span class="founder-tag">U.S. Army Veteran</span>
+          <span class="founder-tag">Real Estate Professional</span>
+          <span class="founder-tag">Enterprise IT Engineer</span>
+          <span class="founder-tag">Maryland — DMV Area</span>
+        </div>
+        <div class="founder-contact">
+          <a href="mailto:jon@thegladdenglobal.com">jon@thegladdenglobal.com</a>
+          <a href="tel:4102044070">(410) 204-4070</a>
+        </div>
+      </div>
+      <div class="founder-bio">
+        <p>Jon Gladden is a U.S. Army veteran, real estate professional, and enterprise IT engineer based in the DMV area. After years of working in high-level technical environments managing large-scale device deployment, automation, and Azure-based infrastructure, Jon recognized a parallel gap.</p>
+        <p>The same people who were never given access to technology at scale were also never given access to real estate wealth-building tools. GGN is Jon's answer to that gap.</p>
+        <p>Built with the discipline of a veteran and the systems mindset of an engineer, it is designed to be the platform he wishes had existed when he was starting out — one that connects the dots, educates every participant, and creates opportunities for communities, youth, and first-generation wealth builders.</p>
+        <div style="margin-top:36px;padding:32px 36px;background:var(--navy);border-left:3px solid var(--gold);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--white);line-height:1.65;margin:0;">We are not a traditional real estate company. We are a connection platform built to bring every participant in the real estate ecosystem together under one roof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--navy);padding:100px 60px;">
+    <div class="section-eyebrow">Our Mission</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:40px;align-items:start;">
+      <div>
+        <h2 class="section-title" style="margin-bottom:24px;">Growing Knowledge.<br><em>Creating Opportunity.</em></h2>
+        <p class="section-body">To grow the business knowledge of every participant in our network, create real opportunities across communities and youth, and give people — especially those who were never shown the door — a clear path to learn, connect, transact, and build generational wealth through real estate.</p>
+      </div>
+      <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);padding:48px 44px;">
+        <div style="font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Four Core Pillars</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div style="padding:24px;border:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Connect</div>
+            <div style="font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.5);">The right people at the right time, every time.</div>
+          </div>
+          <div style="padding:24px;border:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Educate</div>
+            <div style="font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.5);">Knowledge before every transaction.</div>
+          </div>
+          <div style="padding:24px;border:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Elevate</div>
+            <div style="font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.5);">Every participant moves forward together.</div>
+          </div>
+          <div style="padding:24px;border:1px solid rgba(255,255,255,0.07);">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Create Access</div>
+            <div style="font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.5);">Open doors that were never shown before.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div class="inner-hero buyers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">Get In Touch</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Let's Start the<br><em style="color:var(--gold);font-style:italic;">Conversation</em></h1>
+      <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.6);max-width:500px;">Whether you are buying, selling, looking to join the network, or just getting started, we want to hear from you.</p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div>
+        <div class="section-eyebrow">Send a Message</div>
+        <h2 class="section-title" style="margin-bottom:40px;">We Will Get<br><em>Back to You</em></h2>
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first_name" required placeholder="Jon">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last_name" required placeholder="Gladden">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="(410) 000-0000">
+          </div>
+          <div class="form-group">
+            <label>I Am Interested In</label>
+            <select name="interest">
+              <option value="">Select one</option>
+              <option value="buying">Buying a Home</option>
+              <option value="selling">Selling a Home</option>
+              <option value="military">Military / VA Loan</option>
+              <option value="network">Joining the Network</option>
+              <option value="investing">Real Estate Investing</option>
+              <option value="education">Education / Workshop</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" rows="4" placeholder="Tell us a little about your situation..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start;cursor:pointer;font-family:'Montserrat',sans-serif;">Send Message</button>
+          <div class="success-msg" id="successMsg">Thank you. We will be in touch with you shortly.</div>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value"><a href="tel:4102044070">(410) 204-4070</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="mailto:jon@thegladdenglobal.com">jon@thegladdenglobal.com</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">General Inquiries</div>
+          <div class="contact-info-value"><a href="mailto:info@thegladdenglobal.com">info@thegladdenglobal.com</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">Maryland — DMV Area</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Service Area</div>
+          <div class="contact-info-value" style="font-size:18px;">Maryland &nbsp;|&nbsp; National &nbsp;|&nbsp; International</div>
+        </div>
+        <div style="margin-top:40px;padding:36px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);">
+          <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">eXp Realty</div>
+          <p style="font-size:13px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.55);">Our licensed real estate team — the transactional arm that closes the deals GGN generates. Ready to serve buyers and sellers across the DMV and beyond.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- REALTY TEAM PAGE -->
+<div id="page-realty" class="page">
+  <div class="inner-hero buyers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">Join Our Realty Team</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Build Your Business<br>Inside a <em style="color:var(--gold);font-style:italic;">Proven Network</em></h1>
+      <p style="font-size:14px;font-weight:300;line-height:1.9;color:rgba(255,255,255,0.6);max-width:520px;">We are looking for driven real estate professionals who want more than a brokerage. Join a team where education, connection, and community produce results.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--navy);padding:100px 60px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+      <div>
+        <div class="section-eyebrow">Why Join Us</div>
+        <h2 class="section-title" style="margin-bottom:40px;">More Than a<br><em>Brokerage</em></h2>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div class="diff-item">
+            <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div>
+              <div class="diff-item-title">Built-In Referral Network</div>
+              <div class="diff-item-desc">Tap into an active ecosystem of lenders, investors, contractors, and buyers who are already connected to GGN.</div>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div>
+              <div class="diff-item-title">National and International Reach</div>
+              <div class="diff-item-desc">Relocation clients, military families, and international buyers that most local agents never see.</div>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div>
+              <div class="diff-item-title">Veteran Owned Culture</div>
+              <div class="diff-item-desc">Discipline, accountability, and mission-driven leadership that holds the team to a higher standard.</div>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+            <div>
+              <div class="diff-item-title">Education and Growth</div>
+              <div class="diff-item-desc">Access to GGN workshops, market intelligence, and a community that invests in your development as an agent.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.15);padding:52px 44px;">
+          <div class="section-eyebrow" style="margin-bottom:28px;">Express Your Interest</div>
+          <form style="display:flex;flex-direction:column;gap:20px;" onsubmit="handleRealtySubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="r_first" required placeholder="First">
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="r_last" required placeholder="Last">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="r_email" required placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="r_phone" placeholder="(410) 000-0000">
+            </div>
+            <div class="form-group">
+              <label>Current License Status</label>
+              <select name="r_license">
+                <option value="">Select one</option>
+                <option>Licensed and Active</option>
+                <option>Licensed but Inactive</option>
+                <option>Currently in School</option>
+                <option>Not Yet Licensed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tell Us About Yourself</label>
+              <textarea name="r_message" rows="4" placeholder="Your experience, goals, and why GGN..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="align-self:flex-start;cursor:pointer;font-family:'Montserrat',sans-serif;">Submit Interest</button>
+            <div class="success-msg" id="realtySuccessMsg">Thank you. Jon will be in touch with you personally.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- PRIVACY PAGE -->
+<div id="page-privacy" class="page">
+  <div class="inner-hero buyers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">Legal</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Privacy Policy</h1>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);">Effective Date: June 28, 2023</p>
+    </div>
+  </div>
+  <section style="background:var(--off-white);padding:80px 60px;">
+    <div style="max-width:760px;margin:0 auto;font-size:14px;font-weight:300;line-height:1.95;color:rgba(3,7,18,0.7);">
+
+      <p style="margin-bottom:28px;">Gladden Global Network ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website or contact us through any of our services.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">1. Information We Collect</h2>
+      <p style="margin-bottom:12px;">We may collect the following types of information:</p>
+      <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:8px;">
+        <li><strong>Personal Identification Information:</strong> name, email address, phone number, mailing address, and other contact details you provide voluntarily through our website forms, phone calls, or text messages.</li>
+        <li><strong>Property Information:</strong> details about properties you are interested in buying, selling, or renting.</li>
+        <li><strong>Communication Records:</strong> records of calls, emails, and text messages between you and our team.</li>
+        <li><strong>Website Usage Data:</strong> IP address, browser type, pages visited, and time spent on our site collected automatically via cookies and analytics tools.</li>
+      </ul>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">2. How We Use Your Information</h2>
+      <p style="margin-bottom:12px;">We use the information we collect to:</p>
+      <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:8px;">
+        <li>Respond to your inquiries and provide real estate services.</li>
+        <li>Send appointment confirmations, reminders, and schedule updates.</li>
+        <li>Communicate with you via call, email, and text message regarding real estate services.</li>
+        <li>Improve our website and services.</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">3. SMS and Text Message Communications</h2>
+      <p style="margin-bottom:16px;">By submitting your contact information and opting in, you agree to be contacted by Gladden Global Network via call, email, and text for real estate services. To opt out, you can reply STOP at any time or reply HELP for assistance. You can also click the unsubscribe link in our emails. Message and data rates may apply. Message frequency may vary.</p>
+      <p style="margin-bottom:12px;font-weight:500;color:rgba(3,7,18,0.85);">Terms and Conditions for SMS Communications:</p>
+      <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:10px;">
+        <li>We use SMS to confirm appointments, send reminders, and notify clients of schedule updates or important changes.</li>
+        <li>You can cancel the SMS service at any time. Just text STOP to us. After you send STOP, we will confirm your unsubscription. After this, you will no longer receive SMS messages from us.</li>
+        <li>If you are experiencing issues with the messaging program, you can reply HELP for more assistance, or contact us directly at info@thegladdenglobal.com.</li>
+        <li>Carriers are not liable for delayed or undelivered messages.</li>
+        <li>Message and data rates may apply. Message frequency may vary.</li>
+      </ul>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">4. How We Share Your Information</h2>
+      <p style="margin-bottom:12px;">We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
+      <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:8px;">
+        <li><strong>Service Providers:</strong> trusted third parties who assist us in operating our website and conducting our business (such as CRM platforms, communication tools, and analytics services), subject to confidentiality agreements.</li>
+        <li><strong>Legal Requirements:</strong> when required by law or to protect the rights, property, or safety of Gladden Global Network, our clients, or others.</li>
+      </ul>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">5. Cookies and Tracking</h2>
+      <p style="margin-bottom:28px;">Our website may use cookies and similar tracking technologies to enhance your browsing experience. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of our website may not function properly without cookies.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">6. Data Security</h2>
+      <p style="margin-bottom:28px;">We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">7. Your Rights</h2>
+      <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:8px;">
+        <li>Request access to the personal information we hold about you.</li>
+        <li>Request correction of inaccurate information.</li>
+        <li>Request deletion of your personal information, subject to applicable legal requirements.</li>
+        <li>Opt out of marketing communications at any time.</li>
+      </ul>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">8. Third-Party Links</h2>
+      <p style="margin-bottom:28px;">Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">9. Children's Privacy</h2>
+      <p style="margin-bottom:28px;">Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe we have inadvertently collected information from a minor, please contact us immediately.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">10. Changes to This Privacy Policy</h2>
+      <p style="margin-bottom:28px;">We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
+
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--navy);margin-bottom:14px;">11. Contact Us</h2>
+      <p style="margin-bottom:8px;">Gladden Global Network</p>
+      <p style="margin-bottom:8px;">Website: <a href="https://gladdenglobalnetwork.com" style="color:var(--steel);">gladdenglobalnetwork.com</a></p>
+      <p style="margin-bottom:8px;">Email: <a href="mailto:info@thegladdenglobal.com" style="color:var(--steel);">info@thegladdenglobal.com</a></p>
+      <p>Phone: <a href="tel:4102044070" style="color:var(--steel);">(410) 204-4070</a></p>
+
+    </div>
+  </section>
+</div>
+<!-- TERMS PAGE -->
+<div id="page-terms" class="page">
+  <div class="inner-hero buyers-bg">
+    <div class="inner-content">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">Legal</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:24px;">Terms of Use</h1>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);">Last updated: June 2026</p>
+    </div>
+  </div>
+  <section style="background:var(--off-white);padding:80px 60px;">
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="font-size:14px;font-weight:300;line-height:1.95;color:rgba(3,7,18,0.7);">
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;margin-top:0;">Acceptance of Terms</h2>
+        <p style="margin-bottom:28px;">By accessing and using gladdenglobalnetwork.com, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use this website.</p>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">Use of This Website</h2>
+        <p style="margin-bottom:16px;">This website is provided for informational purposes and to facilitate connection with the Gladden Global Network team. You agree to use this website only for lawful purposes and in a manner that does not infringe the rights of others. You may not:</p>
+        <ul style="margin-bottom:28px;padding-left:24px;display:flex;flex-direction:column;gap:8px;">
+          <li>Use the site in any way that violates applicable laws or regulations</li>
+          <li>Transmit unsolicited commercial communications</li>
+          <li>Attempt to gain unauthorized access to any part of this website</li>
+          <li>Use automated tools to scrape, crawl, or extract data from this site</li>
+        </ul>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">No Real Estate Advice</h2>
+        <p style="margin-bottom:28px;">The content on this website is provided for general informational purposes only. Nothing on this site constitutes legal, financial, or real estate advice. All real estate transactions involve individual circumstances and you should consult a licensed professional before making any decisions.</p>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">Intellectual Property</h2>
+        <p style="margin-bottom:28px;">All content on this website including text, graphics, logos, and design elements is the property of Gladden Global Network and may not be reproduced, distributed, or used without express written permission.</p>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">Limitation of Liability</h2>
+        <p style="margin-bottom:28px;">Gladden Global Network makes no warranties, expressed or implied, regarding the accuracy or completeness of the information on this website. We are not liable for any damages arising from your use of or reliance on this website or its content.</p>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">Changes to These Terms</h2>
+        <p style="margin-bottom:28px;">We reserve the right to update these Terms of Use at any time. Changes will be posted on this page with an updated date. Continued use of the website after changes are posted constitutes your acceptance of the revised terms.</p>
+
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--navy);margin-bottom:16px;">Contact</h2>
+        <p style="margin-bottom:8px;">Questions about these terms? Reach us at:</p>
+        <p style="margin-bottom:8px;"><a href="mailto:info@thegladdenglobal.com" style="color:var(--steel);">info@thegladdenglobal.com</a></p>
+        <p><a href="tel:4102044070" style="color:var(--steel);">(410) 204-4070</a></p>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="name">GLADDEN GLOBAL NETWORK</div>
+      <div class="sub">Veteran Owned &nbsp;|&nbsp; Maryland Based &nbsp;|&nbsp; Globally Operated</div>
+      <p>A connection platform built to bring every participant in the real estate ecosystem together under one roof.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('buyers')">Buyers</a></li>
+        <li><a onclick="showPage('sellers')">Sellers</a></li>
+        <li><a onclick="showPage('about')">About</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+        <li><a onclick="showPage('realty')" style="color:var(--gold)">Join Our Realty Team</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a onclick="showPage('buyers')">Home Buying</a></li>
+        <li><a onclick="showPage('sellers')">Home Selling</a></li>
+        <li><a onclick="showPage('buyers')">VA and Military</a></li>
+        <li><a onclick="showPage('contact')">Network Membership</a></li>
+        <li><a onclick="showPage('sellers')">Relist Roadmap</a></li>
+        <li><a onclick="showPage('buyers')">New Construction</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="tel:4102044070">(410) 204-4070</a></li>
+        <li><a href="mailto:jon@thegladdenglobal.com">jon@thegladdenglobal.com</a></li>
+        <li><a href="mailto:info@thegladdenglobal.com">info@thegladdenglobal.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="flex-direction:column;gap:16px;text-align:center;">
+    <p>© 2026 Gladden Global Network. All rights reserved. &nbsp;|&nbsp; <a href="#" onclick="showPage('privacy')" style="color:rgba(255,255,255,0.35);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Privacy Policy</a> &nbsp;|&nbsp; <a href="#" onclick="showPage('terms')" style="color:rgba(255,255,255,0.35);text-decoration:none;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Terms of Use</a></p>
+    <p style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.2);">Powered by Gladden Global Realty Group LLC</p>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // PAGE ROUTING
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // CONTACT FORM
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      first_name: form.first_name.value,
+      last_name: form.last_name.value,
+      email: form.email.value,
+      phone: form.phone.value,
+      interest: form.interest.value,
+      sms_consent: form.consent.checked,
+      source: 'gladdenglobalnetwork.com'
+    };
+
+    fetch('https://grace.gglobalhomes.com/webhook/web', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+
+    document.getElementById('successMsg').style.display = 'block';
+    form.reset();
+  }
+
+  // REALTY FORM
+  function handleRealtySubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      first_name: form.r_first.value,
+      last_name: form.r_last.value,
+      email: form.r_email.value,
+      phone: form.r_phone.value,
+      license: form.r_license.value,
+      message: form.r_message.value,
+      source: 'gladdenglobalnetwork.com/realty-team'
+    };
+    fetch('https://grace.gglobalhomes.com/webhook/web', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => {});
+    document.getElementById('realtySuccessMsg').style.display = 'block';
+    form.reset();
+  }
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const cta = document.querySelector('.nav-cta');
+    if (links) {
+      const isOpen = links.style.display === 'flex';
+      links.style.cssText = isOpen ? '' : 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:rgba(3,7,18,0.98);padding:32px 24px;gap:24px;';
+      if (cta) cta.style.display = isOpen ? '' : 'none';
+    }
+  }
+</script>
+</body>
+</html>
