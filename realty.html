@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Realty Team | Gladden Global Network</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<div class="inner-hero navy-bg">
+  <div class="inner-content">
+    <div class="section-eyebrow">Join Our Realty Team</div>
+    <h1>Build Your Business<br>Inside a <em>Proven Network</em></h1>
+    <p>We are looking for driven real estate professionals who want more than a brokerage. Join a team where education, connection, and community produce results.</p>
+  </div>
+</div>
+
+<section style="background:var(--navy);">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+    <div>
+      <div class="section-eyebrow">Why Join Us</div>
+      <h2 class="section-title" style="margin-bottom:40px;">More Than a<br><em>Brokerage</em></h2>
+      <ul class="diff-list">
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><div class="diff-item-title">Built-In Referral Network</div><div class="diff-item-desc">Tap into an active ecosystem of lenders, investors, contractors, and buyers who are already connected to GGN.</div></div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div><div class="diff-item-title">National and International Reach</div><div class="diff-item-desc">Relocation clients, military families, and international buyers that most local agents never see.</div></div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <div><div class="diff-item-title">Veteran Owned Culture</div><div class="diff-item-desc">Discipline, accountability, and mission-driven leadership that holds the team to a higher standard.</div></div>
+        </li>
+        <li class="diff-item">
+          <div class="diff-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div><div class="diff-item-title">Education and Growth</div><div class="diff-item-desc">Access to GGN workshops, market intelligence, and a community that invests in your development as an agent.</div></div>
+        </li>
+      </ul>
+    </div>
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.15);padding:52px 44px;">
+      <div class="section-eyebrow" style="margin-bottom:28px;">Express Your Interest</div>
+      <form class="contact-form" id="realtyForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" required placeholder="First">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" required placeholder="Last">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="(410) 000-0000">
+        </div>
+        <div class="form-group">
+          <label>Current License Status</label>
+          <select name="interest">
+            <option value="">Select one</option>
+            <option value="licensed_active">Licensed and Active</option>
+            <option value="licensed_inactive">Licensed but Inactive</option>
+            <option value="in_school">Currently in School</option>
+            <option value="not_licensed">Not Yet Licensed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tell Us About Yourself</label>
+          <textarea name="message" rows="4" placeholder="Your experience, goals, and why GGN..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="consent-label">
+            <input type="checkbox" name="consent">
+            I agree to be contacted by Gladden Global Network via call, email, and text. To opt out, reply STOP at any time. Message and data rates may apply. <a href="/privacy.html">Privacy Policy</a>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary">Submit Interest</button>
+        <div class="success-msg" id="realtySuccessMsg">Thank you. Jon will be in touch with you personally.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<style>
+.diff-list { list-style:none;display:flex;flex-direction:column; }
+.diff-item { padding:28px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start; }
+.diff-item:first-child { border-top:1px solid rgba(255,255,255,0.1); }
+.diff-icon { width:32px;height:32px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px; }
+.diff-icon svg { width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5; }
+.diff-item-title { font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--white);margin-bottom:8px; }
+.diff-item-desc { font-size:13px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.6); }
+</style>
+
+<script src="/shared.js"></script>
+<script>
+  renderNav('Join Our Realty Team');
+  renderFooter();
+  handleContactForm('realtyForm', 'realtySuccessMsg');
+</script>
+</body>
+</html>
